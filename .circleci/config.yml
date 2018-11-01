@@ -10,3 +10,14 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
       - run: echo "hello world agail" # run the `echo` command
+
+  build2:
+    docker: # use the docker executor type; machine and macos executors are also supported
+      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+    branches:
+      only:
+        - development
+    steps:
+      - checkout # check out the code in the project directory
+      - run: echo "hello world" # run the `echo` command
+      - run: echo "hello world agail" # run the `echo` command
