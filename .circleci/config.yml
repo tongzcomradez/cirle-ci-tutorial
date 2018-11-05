@@ -28,6 +28,6 @@ workflows:
   deploy:
     jobs:
       - build_dev:
-        filters:
-          branches:
-            only: development
+          filters:
+            branches:
+              only: development
