@@ -1,11 +1,11 @@
+docker_image: &docker_image
+  docker:
+    - image: circleci/node:4.8.2
+
 version: 2
 jobs:
   build:
-    docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
-    branches:
-      only:
-        - master
+    <<: *docker_image
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
@@ -22,3 +22,12 @@ jobs:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
       - run: echo "hello world agail" # run the `echo` command
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build:
+        filters:
+          branches:
+            only: development
