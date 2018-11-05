@@ -11,6 +11,7 @@ jobs:
       - run: echo "hello world" # run the `echo` command
       - run: echo "hello world ${TEST_CI}" # run the `echo` command
 
+
   # build2:
   #   docker: # use the docker executor type; machine and macos executors are also supported
   #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
@@ -29,7 +30,9 @@ workflows:
     jobs:
       - build:
           filters:
-            branches:
-              only:
-                - master
-                - development
+            tags: 
+              only: /rc.*/
+            # branches:
+            #   only:
+            #     - master
+            #     - development
