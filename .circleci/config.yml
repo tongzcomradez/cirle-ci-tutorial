@@ -30,5 +30,6 @@ workflows:
       - build:
           filters:
             branches:
-              - master
-              - development
+              only:
+                - master
+                - development
