@@ -5,6 +5,7 @@ docker_image: &docker_image
 version: 2
 jobs:
   build:
+    machine: true
     <<: *docker_image
     steps:
       - checkout # check out the code in the project directory
