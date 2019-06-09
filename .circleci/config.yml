@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:2.7.14
+      - image: circleci/node:4.8.2
     #<<: *docker_image
     steps:
       - checkout # check out the code in the project directory
