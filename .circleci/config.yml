@@ -5,12 +5,12 @@ docker_image: &docker_image
 version: 2
 jobs:
   build:
-    machine: true
     <<: *docker_image
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello ${CIRCLE_BUILD_NUM}" # run the `echo` command
       - run: echo "hello ${TEST_CI}" # run the `echo` command
+      - run: echo "hello ${DOCKER_HUB_USER} ${DOCKER_HUB_PASSWORD}" # run the `echo` command
       - run: docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD} # run the `echo` command
 
   # build2:
