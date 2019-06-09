@@ -5,11 +5,12 @@ docker_image: &docker_image
 version: 2
 jobs:
   build:
-    <<: *docker_image
+    docker:
+      - image: circleci/node:2.7.14
+    #<<: *docker_image
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
-      - run: echo "hello world ${TEST_CI}" # run the `echo` command
+      - run: echo "hello ${CIRCLE_BUILD_NUM}" # run the `echo` command
 
   # build2:
   #   docker: # use the docker executor type; machine and macos executors are also supported
