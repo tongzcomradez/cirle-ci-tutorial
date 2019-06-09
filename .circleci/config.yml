@@ -5,7 +5,8 @@ docker_image: &docker_image
 version: 2
 jobs:
   build:
-    <<: *docker_image
+    machine: true
+    #<<: *docker_image
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello ${CIRCLE_BUILD_NUM}" # run the `echo` command
