@@ -14,7 +14,11 @@ jobs:
       # - run: echo "hello ${DOCKER_HUB_USER} ${DOCKER_HUB_PASSWORD}" # run the `echo` command
       # - run: docker login -u ${DOCKER_HUB_USER} -p ${DOCKER_HUB_PASSWORD} # run the `echo` command
       - run: echo "hello ci"
-      - run: ssh snaplogic@175.176.223.220 "ls -la"
+      - run: ssh snaplogic@175.176.223.220 `
+        ls -la && \\
+        touch hello.js && \\
+        echo "OKs"
+      `
   # build2:
   #   docker: # use the docker executor type; machine and macos executors are also supported
   #     - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
